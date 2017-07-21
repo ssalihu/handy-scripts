@@ -49,7 +49,10 @@ if [ "${#commit_array[@]}" -gt 0 ];
 then
 	for c in "${commit_array[@]}" 
 	do   
-		echo "$BRANCH_NAME:$JIRA: $c" >> $FOUND_IT
+	    if [ "$c" != "" ];
+		then
+			echo "$BRANCH_NAME:$JIRA: $c" >> $FOUND_IT
+		fi
 	done
 else
 	printf "\e[91m...Not found ✘\e[0m\n"
